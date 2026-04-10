@@ -23,13 +23,24 @@ clf_model = None
 @app.on_event("startup")
 def load_models():
     global reg_model, clf_model
-    if os.path.exists("energy_reg_model.pkl"):
-        with open("energy_reg_model.pkl", "rb") as f:
+    base_path = os.path.dirname(os.path.abspath(__file__))
+    reg_path = os.path.join(base_path, "energy_reg_model.pkl")
+    clf_path = os.path.join(base_path, "energy_clf_model.pkl")
+    
+    if os.path.exists(reg_path):
+        with open(reg_path, "rb") as f:
             reg_model = pickle.load(f)
-    if os.path.exists("energy_clf_model.pkl"):
-        with open("energy_clf_model.pkl", "rb") as f:
+        print(f"🚀 Regression model loaded from {reg_path}")
+    else:
+        print(f"❌ Regression model NOT found at {reg_path}")
+        
+    if os.path.exists(clf_path):
+        with open(clf_path, "rb") as f:
             clf_model = pickle.load(f)
-    print("🚀 Models loaded successully!")
+        print(f"🚀 Classification model loaded from {clf_path}")
+    else:
+        print(f"❌ Classification model NOT found at {clf_path}")
+
 
 class PredictionRequest(BaseModel):
     hour: int
