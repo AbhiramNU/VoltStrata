@@ -3,7 +3,9 @@ node_modules/
 dist/
 .vercel
 .env
-*.pkl
+# Models are required for production
+# *.pkl (Removed to allow deployment)
+
 household_power_consumption.txt
 export_models.py
 __pycache__/
