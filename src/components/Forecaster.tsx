@@ -21,14 +21,21 @@ const Forecaster = () => {
             });
 
             const data = await response.json();
-            setPrediction(data);
+            if (data.error) {
+                alert("Neural Engine Error: " + data.error);
+                setPrediction(null);
+            } else {
+                setPrediction(data);
+            }
         } catch (error) {
             console.error("Prediction failed", error);
-            alert("Backend not reachable. Start the backend_main.py first!");
+            alert("Neural Engine is currently waking up on Render. Please try again in 30 seconds.");
+            setPrediction(null);
         } finally {
             setLoading(false);
         }
     };
+
 
     return (
         <div className="glass-panel p-1 rounded-[3rem] group max-w-4xl mx-auto mt-20">
