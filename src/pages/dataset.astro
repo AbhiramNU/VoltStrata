@@ -1,0 +1,92 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+import { Table, Database, ArrowLeft, Download } from 'lucide-react';
+
+const datasetInfo = [
+    { label: "Total Samples", value: "2,075,259" },
+    { label: "Time Span", value: "Dec 2006 - Nov 2010" },
+    { label: "Features", value: "9 (Voltage, Global_active_power, etc.)" },
+    { label: "Sampling Rate", value: "1 minute" }
+];
+
+const sampleData = [
+    ["2006-12-16", "17:24:00", "4.216", "0.418", "234.840", "18.400", "0.000", "1.000", "17.000"],
+    ["2006-12-16", "17:25:00", "5.360", "0.436", "233.630", "23.000", "0.000", "1.000", "16.000"],
+    ["2006-12-16", "17:26:00", "5.374", "0.498", "233.290", "23.000", "0.000", "2.000", "17.000"],
+    ["2006-12-16", "17:27:00", "5.388", "0.502", "233.740", "23.000", "0.000", "1.000", "17.000"],
+    ["2006-12-16", "17:28:00", "3.666", "0.528", "235.680", "15.800", "0.000", "1.000", "17.000"],
+    ["2006-12-16", "17:29:00", "3.520", "0.522", "235.020", "15.000", "0.000", "2.000", "17.000"]
+];
+
+const headers = ["Date", "Time", "G_active", "G_reactive", "Voltage", "G_intensity", "Sub_1", "Sub_2", "Sub_3"];
+---
+
+<Layout title="VOLTSTRATA // DATA_WAREHOUSE">
+    <main class="min-h-screen py-32 px-12 relative overflow-hidden bg-slate-950">
+        <!-- Background Grain -->
+        <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto relative z-10">
+            <!-- Header -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8">
+                <div>
+                    <a href="/" class="inline-flex items-center space-x-2 text-blue-400 text-[10px] font-black uppercase tracking-widest mb-6 hover:text-white transition-colors">
+                        <ArrowLeft className="w-4 h-4" />
+                        <span>Return to Terminal</span>
+                    </a>
+                    <h1 class="text-7xl font-black tracking-tighter text-hifi uppercase mb-4">DATASET_PREVIEW</h1>
+                    <p class="text-slate-500 text-xs font-bold uppercase tracking-[.4em]">Individual Household Electric Power Consumption</p>
+                </div>
+                <div class="flex space-x-4">
+                    <div class="glass-panel px-6 py-4 rounded-2xl flex items-center space-x-4">
+                        <Database className="w-6 h-6 text-blue-500" />
+                        <div>
+                            <div class="text-[9px] font-black text-slate-500 uppercase tracking-widest">Format</div>
+                            <div class="text-white font-black text-xs">UCI_ARCHIVE (.TXT)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+                {datasetInfo.map(info => (
+                    <div class="glass-panel p-8 rounded-3xl border-white/5 bg-white/[0.02]">
+                        <div class="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-2">{info.label}</div>
+                        <div class="text-white font-black text-xl tracking-tighter uppercase">{info.value}</div>
+                    </div>
+                ))}
+            </div>
+
+            <!-- Table -->
+             <div class="glass-panel p-1 rounded-[2.5rem] overflow-hidden">
+                <div class="bg-black/40 p-8 overflow-x-auto">
+                    <table class="w-full text-left text-[11px] font-bold tracking-tight">
+                        <thead>
+                            <tr class="text-blue-400 uppercase tracking-widest border-b border-white/10">
+                                {headers.map(h => <th class="pb-6 px-4">{h}</th>)}
+                            </tr>
+                        </thead>
+                        <tbody class="text-slate-400 tabular-nums">
+                            {sampleData.map(row => (
+                                <tr class="border-b border-white/5 hover:bg-white/5 transition-colors group">
+                                    {row.map(cell => (
+                                        <td class="py-5 px-4 group-hover:text-white">{cell}</td>
+                                    ))}
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+             </div>
+
+             <div class="mt-12 flex justify-center">
+                 <button class="px-12 py-5 bg-white text-slate-950 rounded-2xl font-black text-[11px] uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all transform hover:scale-105 active:scale-95 shadow-2xl flex items-center space-x-3">
+                     <Download className="w-5 h-5" />
+                     <span>Download Full Kernel</span>
+                 </button>
+             </div>
+        </div>
+    </main>
+</Layout>

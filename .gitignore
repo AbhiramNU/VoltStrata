@@ -1,0 +1,10 @@
+node_modules/
+.DS_Store
+dist/
+.vercel
+.env
+*.pkl
+household_power_consumption.txt
+export_models.py
+__pycache__/
+.astro/

@@ -1,0 +1,215 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Cpu, Zap, Activity, Globe } from 'lucide-react';
+import DataVisualizer from '../components/DataVisualizer.tsx';
+import Forecaster from '../components/Forecaster.tsx';
+---
+
+
+<Layout title="VOLTSTRATA // NEURAL ENERGY ENGINE">
+    <!-- Pill Nav -->
+    <header class="fixed top-0 left-0 w-full z-[100] py-8 px-6">
+        <nav class="max-w-4xl mx-auto flex justify-between items-center backdrop-blur-3xl bg-slate-950/40 py-4 px-10 rounded-full border border-white/10 shadow-2xl">
+            <div class="text-xl font-black tracking-tighter uppercase flex items-center space-x-2 group cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <span class="text-2xl group-hover:drop-shadow-[0_0_10px_rgba(59,130,246,0.8)] transition-all">⚡</span>
+                <span class="neon-text bg-none text-white opacity-90 group-hover:opacity-100 uppercase tracking-tighter">VOLTSTRATA</span>
+            </div>
+            <div class="hidden md:flex space-x-10 text-[10px] font-bold uppercase tracking-[.3em] text-slate-400">
+                <a href="#analysis" class="hover:text-white transition-colors">Analysis</a>
+                <a href="#architecture" class="hover:text-white transition-colors">Architecture</a>
+                <a href="#grid" class="hover:text-white transition-colors">Grid_Load</a>
+            </div>
+            <button class="bg-white text-slate-950 px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all duration-500 shadow-lg" onclick="document.querySelector('#analysis').scrollIntoView({behavior: 'smooth'})">
+                Demo.
+            </button>
+        </nav>
+    </header>
+
+	<main class="relative">
+		<!-- Ultra Hero -->
+		<section id="hero" class="min-h-screen flex flex-col justify-center items-center px-12 pt-40 pb-20 relative overflow-hidden">
+            <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none"></div>
+            
+            <div class="hero-reveal mb-8 px-4 py-1.5 border border-blue-500/20 bg-blue-500/10 text-blue-400 text-[10px] font-black uppercase tracking-[.4em] rounded-full">
+                <span class="mr-2 animate-pulse">●</span> 2026 Grid-Aware Intelligence
+            </div>
+
+			<h1 class="hero-reveal text-center">
+                <span class="block text-5xl md:text-[8.5vw] font-black tracking-tighter leading-[0.85] text-hifi uppercase">PREDICTING THE</span>
+                <span class="block text-5xl md:text-[8.5vw] font-black tracking-tighter leading-[0.85] italic uppercase">
+                    <span class="text-hifi-inverse">PULSE</span> <span class="text-hifi">OF THE GRID</span>
+                </span>
+            </h1>
+
+
+
+            <p class="hero-reveal text-center text-slate-400 max-w-2xl mx-auto mt-12 text-sm md:text-lg font-light leading-relaxed italic opacity-80">
+				Context-aware Machine Learning forecasting that transcends simple sensors. <br class="hidden md:block" /> Anticipating demand through clinical temporal intelligence.
+			</p>
+
+            <div class="hero-reveal flex space-x-6 mt-16">
+				<a href="https://github.com/AbhiramNU/VoltStrata" target="_blank" class="px-10 py-5 bg-white text-slate-950 rounded-2xl font-black text-[11px] uppercase tracking-widest hover:bg-slate-200 transition-all transform hover:scale-105 active:scale-95 shadow-2xl">
+					Explore Source Code
+				</a>
+
+				<a href="/dataset" class="px-10 py-5 glass-panel rounded-2xl font-black text-[11px] uppercase tracking-widest border-white/10 hover:bg-white/5 transition-all text-white">
+					Check Dataset
+				</a>
+			</div>
+
+            <!-- Stats -->
+            <div class="hero-reveal mt-24 grid grid-cols-2 md:grid-cols-4 gap-12 text-center w-full max-w-4xl">
+				<div class="group relative">
+                    <div class="stat-glow"></div>
+					<div class="text-5xl font-black mb-2 tabular-nums text-hifi drop-shadow-[0_0_15px_rgba(59,130,246,0.2)] group-hover:scale-110 transition-transform">0.57</div>
+					<div class="text-[9px] text-slate-500 uppercase tracking-widest font-black group-hover:text-blue-400 transition-colors">Regression R²</div>
+				</div>
+				<div class="group relative">
+                    <div class="stat-glow"></div>
+					<div class="text-5xl font-black mb-2 tabular-nums text-hifi drop-shadow-[0_0_15px_rgba(59,130,246,0.2)] group-hover:scale-110 transition-transform">71.2%</div>
+					<div class="text-[9px] text-slate-500 uppercase tracking-widest font-black group-hover:text-blue-400 transition-colors">Class Accuracy</div>
+				</div>
+                <div class="group relative">
+                    <div class="stat-glow"></div>
+					<div class="text-5xl font-black mb-2 tabular-nums text-hifi drop-shadow-[0_0_15px_rgba(59,130,246,0.2)] group-hover:scale-110 transition-transform">2026</div>
+					<div class="text-[9px] text-slate-500 uppercase tracking-widest font-black group-hover:text-blue-400 transition-colors">Deploy Year</div>
+				</div>
+				<div class="group relative">
+                    <div class="stat-glow"></div>
+					<div class="text-5xl font-black mb-2 tabular-nums text-hifi drop-shadow-[0_0_15px_rgba(59,130,246,0.2)] group-hover:scale-110 transition-transform">100K+</div>
+					<div class="text-[9px] text-slate-500 uppercase tracking-widest font-black group-hover:text-blue-400 transition-colors">Data Points</div>
+				</div>
+			</div>
+
+
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-12 left-12 flex items-center space-x-4 rotate-90 origin-left opacity-30">
+                <div class="text-[9px] font-bold uppercase tracking-[.4em]">Scroll to Initiate</div>
+                <div class="w-12 h-[1px] bg-white"></div>
+            </div>
+		</section>
+
+        <!-- Content Section -->
+        <section id="analysis" class="py-40 px-12 max-w-7xl mx-auto space-y-40">
+            <div id="simulator" class="section-reveal">
+                <Forecaster client:visible />
+            </div>
+
+            <!-- Part 1: Features -->
+
+            <div id="architecture" class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center section-reveal pt-20">
+                <div class="glass-panel p-1 border-white/10 rounded-[2.5rem] group hover:border-blue-500/50 transition-all duration-500 hover:scale-[1.02]">
+                    <div class="bg-black/40 rounded-[2.4rem] p-12 overflow-hidden relative">
+                         <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-blue-500/30 blur-[100px] group-hover:bg-blue-500/50 group-hover:scale-150 transition-all duration-1000"></div>
+                         <Cpu className="w-10 h-10 text-blue-500 mb-8 group-hover:rotate-12 transition-transform" />
+                         <h2 class="text-4xl font-black mb-6 tracking-tighter uppercase leading-none group-hover:text-white transition-colors">Lag-1 <br/> Awareness.</h2>
+                         <p class="text-slate-400 leading-relaxed text-sm group-hover:text-slate-200 transition-colors">Our Random Forest pipelines don't just see time; they remember history. By leveraging shift-based lag features, the model predicts shifts before they happen.</p>
+                         <div class="mt-10 flex space-x-2">
+                            <div class="w-12 h-1 bg-blue-500 rounded-full animate-pulse shadow-[0_0_15px_rgba(59,130,246,0.5)]"></div>
+                            <div class="w-24 h-1 bg-slate-800 rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 gap-6">
+                    <div class="glass-panel p-8 rounded-3xl group hover:border-cyan-500/50 transition-all hover:-translate-y-1">
+                        <Zap className="w-6 h-6 text-blue-500 mb-4 group-hover:scale-125 transition-transform" />
+                        <h4 class="font-black text-xs uppercase tracking-widest mb-2 group-hover:text-cyan-400 transition-colors">Zero Signal Policy</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed">Pure forecasting without sensors. We rely solely on the pulse of the clock.</p>
+                    </div>
+                    <div class="glass-panel p-8 rounded-3xl bg-gradient-to-br from-blue-600 to-blue-900 border-none group hover:brightness-110 transition-all hover:-translate-y-1">
+                        <Activity className="w-6 h-6 text-white mb-4 group-hover:animate-bounce" />
+                        <h4 class="font-black text-xs uppercase tracking-widest mb-2 text-white">99% Realism Targets</h4>
+                        <p class="text-xs text-blue-100/60 leading-relaxed">Optimized for Edge Node deployment with low latency execution.</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Part 2: Visualizer (The Dope Bar Thing) -->
+            <div id="grid" class="section-reveal">
+                <div class="flex justify-between items-end mb-12">
+                    <div>
+                        <h2 class="text-5xl font-black tracking-tighter text-hifi group cursor-pointer hover:brightness-125 transition-all">GRID_LOAD</h2>
+                        <p class="text-[10px] font-bold text-slate-500 uppercase tracking-[.4em] mt-2 italic">Neural Projection Output // Alpha_v.1</p>
+                    </div>
+                    <div class="flex items-center space-x-3 bg-blue-500/5 border border-blue-500/20 px-4 py-2 rounded-full hover:bg-blue-500/10 transition-colors cursor-help">
+                        <div class="w-2 h-2 bg-blue-400 rounded-full animate-ping"></div>
+                        <span class="text-[10px] text-blue-400 font-black uppercase tracking-widest">Live_Stream</span>
+                    </div>
+                </div>
+                <div class="glass-panel p-2 rounded-[3.5rem] overflow-hidden group hover:border-blue-500/20 transition-all">
+                    <div class="bg-slate-950/60 p-16 relative rounded-[3.4rem]">
+                        <!-- Background glow -->
+                        <div class="absolute inset-0 bg-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+                        
+                        <DataVisualizer client:visible />
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Footer -->
+        <footer class="py-40 text-center relative overflow-hidden">
+             <div class="absolute inset-0 bg-blue-600/5 blur-[120px] rounded-full"></div>
+             
+             <div class="relative z-10">
+                 <h2 class="text-3xl font-black text-hifi tracking-[.2em] uppercase mb-12">Abhiram N udupa</h2>
+                 
+                 <div class="flex items-center justify-center space-x-8 mb-16">
+                     <a href="https://www.instagram.com/abhi_udupa00/" target="_blank" class="w-12 h-12 border border-white/10 rounded-full flex items-center justify-center hover:border-blue-500/50 hover:bg-white/5 transition-all group pointer-events-auto">
+                         <svg class="w-5 h-5 text-slate-500 group-hover:text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                     </a>
+                     <a href="https://github.com/AbhiramNU" target="_blank" class="w-12 h-12 border border-white/10 rounded-full flex items-center justify-center hover:border-blue-500/50 hover:bg-white/5 transition-all group pointer-events-auto">
+                         <svg class="w-5 h-5 text-slate-500 group-hover:text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                     </a>
+                     <a href="https://www.linkedin.com/in/abhiramnu/" target="_blank" class="w-12 h-12 border border-white/10 rounded-full flex items-center justify-center hover:border-blue-500/50 hover:bg-white/5 transition-all group pointer-events-auto">
+                         <svg class="w-5 h-5 text-slate-500 group-hover:text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                     </a>
+                 </div>
+
+                 <p class="text-[9px] font-bold text-slate-700 tracking-[.5em] uppercase">© 2026 ABHIRAM N UDUPA. ALL RIGHTS RESERVED.</p>
+             </div>
+        </footer>
+
+
+
+	</main>
+</Layout>
+
+<script>
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Initial Hero Entrance (On Load)
+    gsap.from(".hero-reveal", {
+        opacity: 0,
+        y: 60,
+        stagger: 0.15,
+        duration: 1.4,
+        ease: "expo.out",
+        delay: 0.2
+    });
+
+    // Section Reveal Logic (On Scroll)
+    const reveals = document.querySelectorAll('.section-reveal');
+    reveals.forEach((el) => {
+        gsap.from(el, {
+            opacity: 0,
+            y: 100,
+            duration: 1.5,
+            ease: "expo.out",
+            scrollTrigger: {
+                trigger: el,
+                start: "top 85%",
+            }
+        });
+    });
+
+</script>
+
+

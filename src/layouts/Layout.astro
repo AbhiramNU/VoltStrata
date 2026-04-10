@@ -1,0 +1,75 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="VOLTSTRATA // NEURAL ENERGY FORECASTING" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title}</title>
+	</head>
+	<body class="bg-slate-950">
+		<div class="mesh-bg"></div>
+		<div class="grid-overlay"></div>
+		<div id="glow" class="glow-cursor"></div>
+
+		
+		<slot />
+
+		<script>
+            import Lenis from '@studio-freight/lenis';
+            import { gsap } from 'gsap';
+            import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+            gsap.registerPlugin(ScrollTrigger);
+
+            // 1. Smooth Scroll (Lenis)
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                smoothWheel: true,
+            });
+
+            function raf(time: number) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+
+            // 2. Custom Magnetic Glow
+			const glow = document.getElementById('glow');
+			window.addEventListener('mousemove', (e) => {
+				if (glow) {
+                    gsap.to(glow, {
+                        x: e.clientX,
+                        y: e.clientY,
+                        duration: 0.8,
+                        ease: "power2.out"
+                    });
+				}
+			});
+
+            // 3. Staggered Entrance
+            gsap.from(".reveal-stagger", {
+                opacity: 0,
+                y: 40,
+                stagger: 0.1,
+                duration: 1,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: "body",
+                    start: "top top",
+                }
+            });
+		</script>
+	</body>
+</html>
