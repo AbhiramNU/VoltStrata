@@ -7,8 +7,9 @@ const DataVisualizer = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:8000/visualize');
+                const response = await fetch('https://voltstrata.onrender.com/visualize');
                 const result = await response.json();
+
                 if (Array.isArray(result)) {
                     setData(result);
                 }

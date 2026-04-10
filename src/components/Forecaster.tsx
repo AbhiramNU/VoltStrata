@@ -14,11 +14,12 @@ const Forecaster = () => {
     const handlePredict = async () => {
         setLoading(true);
         try {
-            const response = await fetch('http://localhost:8000/predict', {
+            const response = await fetch('https://voltstrata.onrender.com/predict', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
             });
+
             const data = await response.json();
             setPrediction(data);
         } catch (error) {

@@ -11,9 +11,10 @@ import Forecaster from '../components/Forecaster.tsx';
     <header class="fixed top-0 left-0 w-full z-[100] py-8 px-6">
         <nav class="max-w-4xl mx-auto flex justify-between items-center backdrop-blur-3xl bg-slate-950/40 py-4 px-10 rounded-full border border-white/10 shadow-2xl">
             <div class="text-xl font-black tracking-tighter uppercase flex items-center space-x-2 group cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-                <span class="text-2xl group-hover:drop-shadow-[0_0_10px_rgba(59,130,246,0.8)] transition-all">⚡</span>
-                <span class="neon-text bg-none text-white opacity-90 group-hover:opacity-100 uppercase tracking-tighter">VOLTSTRATA</span>
+                <Zap className="w-8 h-8 text-blue-500 fill-blue-500/20 group-hover:drop-shadow-[0_0_15px_rgba(59,130,246,1)] transition-all duration-500" />
+                <span class="neon-text bg-none text-white opacity-90 group-hover:opacity-100 uppercase tracking-tighter transition-opacity">VOLTSTRATA</span>
             </div>
+
             <div class="hidden md:flex space-x-10 text-[10px] font-bold uppercase tracking-[.3em] text-slate-400">
                 <a href="#analysis" class="hover:text-white transition-colors">Analysis</a>
                 <a href="#architecture" class="hover:text-white transition-colors">Architecture</a>
