@@ -3,7 +3,6 @@
 **VoltStrata** is a high-fidelity energy consumption forecasting platform that leverages context-aware Machine Learning to anticipate grid demand. Built with a brutalist-luxury aesthetic and a high-performance neural engine, it transforms raw household power data into actionable temporal intelligence.
 
 Live Link:https://volt-strata.vercel.app/
-![VoltStrata UI Preview](https://raw.githubusercontent.com/AbhiramNU/VoltStrata/main/public/preview.png)
 
 ## 🚀 Vision
 The project aims to solve the "sensor-gap" in energy management by using pure temporal intelligence (Date/Time/Lag) to predict consumption patterns with **99% realism targets** for edge-node deployment.
